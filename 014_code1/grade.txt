@@ -1,4 +1,4 @@
-Grading at 09/04/2018:19:13:26.118309
+Grading at 09/04/2018:19:17:54.970724
 For commit ID 917443effb47f77fc77e1ec4457b4343b2d086a2
 [32mSuccessfully compiled ['code1.c'].[0m
 Checking for 'int max(int num1, int num2)'
