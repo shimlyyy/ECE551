@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
-int getSecretNumber(void); // prototype, implemented elsewhere.
+int getSecretNumber(void);  // prototype, implemented elsewhere.
 
-int getOtherSN(int which); // prototype, implemented elsewhere.
+int getOtherSN(int which);  // prototype, implemented elsewhere.
 
 int main(void) {
   int guessesMade = 0;
@@ -26,6 +26,7 @@ int main(void) {
   printf("Correct! You win round1!\n");
 
   int total = 0;
+
   for (int i = 0; i <= 5678; i++) {
     total = total ^ getOtherSN(i);
   }
