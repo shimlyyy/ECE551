@@ -1,0 +1,29 @@
+aaaa bbbbb
+aaaaa bbbbb
+aaaaa bbbbc
+aaabb bbbbc
+aabbb bbacd
+aaaaa cbbbb
+bbaaa cbbbb
+bbbaa dcabb
+bbbaa aabba
+b   a aabbc
+babba aabbc
+a b
+a a
+aa b c
+aaabbb bbbbbb
+bbb5a
+      55aaa
+2aaaaa bbbba
+Aaaaa ccccc
+aaaaa Aaaaa
+Beeeeeee
+a b c
+aa aa bb
+11 345
+12345 54321
+ddddd aaabhh
+aabbb aabb
+aabb aabbb
+ddddd aaaabb
