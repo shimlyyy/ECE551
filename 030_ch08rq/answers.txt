@@ -6,12 +6,12 @@ c
 b
 c
 c
-g
+f
 b
 c
-g
+c
 f
 c
 b
 c
-e
+a
