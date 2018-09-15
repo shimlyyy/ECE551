@@ -2,7 +2,16 @@
 #include <stdlib.h>
 
 int * arrayMax(int * array, int n) {
-  return NULL;
+  if (n == 0) {
+    return NULL;
+  }
+  int * arrayMax = &array[0];
+  for (int j = 1; j < n; j++) {
+    if (array[j] > *arrayMax) {
+      arrayMax = &array[j];
+    }
+  }
+  return arrayMax;
 }
 
 void doTest(int * array, int n) {
