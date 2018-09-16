@@ -16,5 +16,8 @@ size_t maxSeq(int * array, size_t n) {
       subseq = 1;
     }
   }
+  if (subseq > sum) {
+    sum = subseq;
+  }
   return sum;
 }
