@@ -1,7 +1,6 @@
-Grading at 09/17/2018:19:32:51.873444
-For commit ID 2bb79bf8b806e9dbcf78614340b8f3b00a22714e
+Grading at 09/17/2018:19:34:49.790150
+For commit ID 2b2b00a8be4855cad880866febd94b69dbad7d8a
 Line_6_did_not_match
-Line_7_did_not_match
 Your file did not match the expected ouput
 
 Overall Grade: FAILED
