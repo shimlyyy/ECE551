@@ -35,6 +35,7 @@ int main(void) {
   printSeq1Range(-2, 6);
   printf("printSeq1Range(%d, %d)\n", 7, 3);
   printSeq1Range(7, 3);
+  return EXIT_SUCCESS;
 }
 //  Step 1 (C): write printSeq1Range
 //  Step 1 (D): add test cases to main to test printSeq1Range

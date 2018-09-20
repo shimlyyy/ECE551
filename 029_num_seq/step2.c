@@ -32,6 +32,7 @@ int main(void) {
   printf("sumSeq2(%d, %d) = %d\n", 9, 7, sumSeq2(9, 7));
   printf("sumSeq2(%d, %d) = %d\n", -4, 1, sumSeq2(-4, 2));
   printf("sumSeq2(%d,%d)=%d\n", 0, 0, sumSeq2(0, 0));
+  return EXIT_SUCCESS;
 }
 //  Step 2 (C): write sumSeq2
 //  Step 2 (D): add test cases to main to test sumSeq2
