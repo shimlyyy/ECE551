@@ -3,20 +3,19 @@
 #include <string.h>
 
 void reverse(char * str) {
-  if (str == NULL) {
-    exit(EXIT_SUCCESS);
-  }
   char * p = str;
   char a;
   int count = 0;
-  while (*p != '\0') {
-    count++;
-    p++;
-  }
-  for (int i = 0; i < count / 2; i++) {
-    a = str[i];
-    str[i] = str[count - i - 1];
-    str[count - i - 1] = a;
+  if (p != NULL) {
+    while (*p != '\0') {
+      count++;
+      p++;
+    }
+    for (int i = 0; i < count / 2; i++) {
+      a = str[i];
+      str[i] = str[count - i - 1];
+      str[count - i - 1] = a;
+    }
   }
 }
 
