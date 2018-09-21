@@ -1,5 +1,5 @@
-Grading at 09/21/2018:13:54:57.573092
-For commit ID 5bbdb4a47af4a16b6ae60cbd970e0d893c5be56e
+Grading at 09/21/2018:14:08:21.777514
+For commit ID bcf4892b1ac6b759f432a7cf7f2428c76443f8a3
 [32mSuccessfully compiled ['reverse.c'].[0m
 ********************test case 1********************
 Exit status of your code: 0
@@ -11,9 +11,8 @@ removing your main() and replacing it with out own to run more tests...
 check empty inputs blahblahblah
 Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 0 lines, but we expected 1 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 2[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 2[0m
 ********************test case 3********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
@@ -29,5 +28,5 @@ Exit status of your code: 0
 [32mValgrind was clean[0m
 [32mCorrect: your output matched the expected output.[0m
 [32mpassed test case 5[0m
-[31mfailed 1 out of 5 test cases[0m
-Overall Grade: C
+[32msuccessfully passed all 5 test cases[0m
+Overall Grade: A
