@@ -1,4 +1,4 @@
-16 index out of bound
+16 index out of bounds
 17 use of uninitialized value
 18 use of uninitialized value
 21 return dangling pointer
