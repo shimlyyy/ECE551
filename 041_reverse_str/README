@@ -1,4 +1,4 @@
-For this problem, you will write the function
+ For this problem, you will write the function
   void reverse(char * str) 
 in the provided reverse.c file.  This function should reverse the
 string passed into it (that is, if given "abc", it should change the
