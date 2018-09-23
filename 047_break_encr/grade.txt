@@ -1,0 +1,23 @@
+Grading at 09/23/2018:02:53:20.976751
+For commit ID 211d96c3c4da48f4406e453a65ff1f6ac72486c3
+running passed-in stu_imp ./breaker
+[33mWarning: fail to run make clean[0m
+[32mSuccessfully compiled .[0m
+********************test case 1********************
+Exit status of your code: 0
+[31mtest case 1 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Use of uninitialised value of size 8[0m
+[31m2 Conditional jump or move depends on uninitialised value[0m
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 1[0m
+********************test case 2********************
+Exit status of your code: 0
+[31mtest case 2 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Conditional jump or move depends on uninitialised value[0m
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 2[0m
+********************test case 3********************
+Exit status of your code: 139
+[31mtest case 3 Error: Your program had segmentation fault[0m
+[31mCannot continue testing[0m
+Overall Grade: F
