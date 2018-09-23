@@ -58,6 +58,7 @@ int main(int argc, char ** argv) {
   char array[2000];
   int count = filetoarray(f, array);
   int key = find_e(array, count);
+  printf("key=%d\n", key);
   breaker(f, key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
