@@ -31,20 +31,6 @@ int find_e(char * array) {
   return maxchar - 'e';
 }
 
-void breaker(FILE * f, int key) {
-  int c;
-  while ((c = fgetc(f)) != EOF) {
-    if (isalpha(c)) {
-      c -= 'a';
-      c -= key;
-      while (c < 0) {
-        c += 26;
-      }
-      c += 'a';
-    }
-    printf("%c", c);
-  }
-}
 int main(int argc, char ** argv) {
   if (argc != 1) {
     fprintf(stderr, "Usage: breaker key inputFileName\n");
@@ -59,7 +45,6 @@ int main(int argc, char ** argv) {
   filetoarray(f, array);
   int key = find_e(array);
   printf("%d\n", key);
-  breaker(f, key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
