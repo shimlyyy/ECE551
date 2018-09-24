@@ -43,8 +43,13 @@ int main(int argc, char ** argv) {
   }
   char array[2000] = {'\0'};
   filetoarray(f, array);
-  int key = find_e(array);
-  fprintf(stdout, "%d\n", key);
+  if (array[0] != '\0') {
+    int key = find_e(array);
+    fprintf(stdout, "%d\n", key);
+  }
+  else {
+    fprintf(stderr, "Invalid file\n");
+  }
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
