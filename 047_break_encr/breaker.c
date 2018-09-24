@@ -2,21 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 void filetoarray(FILE * f, char * array) {
-  if (f != NULL) {
-    int c;
-    int i = 0;
-    while (i < 3000 && ((c = fgetc(f)) != EOF)) {
-      if (isalpha(c)) {
-        array[i] = c;
-        i++;
-      }
+  int c;
+  int i = 0;
+  while (i < 3000 && ((c = fgetc(f)) != EOF)) {
+    if (isalpha(c)) {
+      array[i] = c;
+      i++;
     }
   }
 }
+
 int find_e(char * array) {
   int count = 0;
   int max = 0;
-  char maxchar;
+  char maxchar = 'e';
   for (char a = 'a'; a <= 'z'; a++) {
     for (int j = 0; array[j] != '\0'; j++) {
       if (array[j] == a) {
@@ -29,8 +28,12 @@ int find_e(char * array) {
     }
     count = 0;
   }
+
   if (maxchar < 'e') {
     return maxchar - 'e' + 26;
+  }
+  if (maxchar == 'e') {
+    return 0;
   }
   return maxchar - 'e';
 }
@@ -47,14 +50,8 @@ int main(int argc, char ** argv) {
   }
   char array[30001] = {'\0'};
   filetoarray(f, array);
-  if (array[0] != '\0') {
-    int key = find_e(array);
-    fprintf(stdout, "%d\n", key);
-  }
-  else {
-    fprintf(stderr, "Invalid file\n");
-    return EXIT_FAILURE;
-  }
+  int key = find_e(array);
+  fprintf(stdout, "%d\n", key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
