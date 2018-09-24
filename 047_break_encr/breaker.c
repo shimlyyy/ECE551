@@ -53,6 +53,7 @@ int main(int argc, char ** argv) {
   }
   else {
     fprintf(stderr, "Invalid file\n");
+    return EXIT_FAILURE;
   }
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
