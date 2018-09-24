@@ -1,5 +1,5 @@
-Grading at 09/24/2018:12:33:01.509826
-For commit ID 8f84c60a5179d991bf674d35d5c3975b34c6f260
+Grading at 09/24/2018:13:23:46.889596
+For commit ID 69b8c733fc543dcbfc52b8033f12a4b9bca0a1c3
 running passed-in stu_imp ./breaker
 [33mWarning: fail to run make clean[0m
 [32mSuccessfully compiled .[0m
