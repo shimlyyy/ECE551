@@ -28,6 +28,9 @@ int find_e(char * array) {
     }
     count = 0;
   }
+  if (maxchar < 'e') {
+    return maxchar - 'e' + 26;
+  }
   return maxchar - 'e';
 }
 
