@@ -1,6 +1,20 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+int countchar(FILE * f) {
+  int c;
+  int count = 0;
+  while ((c = fgetc(f)) != EOF) {
+    if (isalpha(c)) {
+      count++;
+    }
+  }
+  if (count == 0) {
+    exit(EXIT_FAILURE);
+  }
+  return count;
+}
+
 void filetoarray(FILE * f, char * array) {
   int c;
   int i = 0;
@@ -12,12 +26,12 @@ void filetoarray(FILE * f, char * array) {
   }
 }
 
-int find_e(char * array) {
+int find_e(char * array, int len) {
   int count = 0;
   int max = 0;
   char maxchar;
   for (char a = 'a'; a <= 'z'; a++) {
-    for (int j = 0; array[j] != '\0'; j++) {
+    for (int j = 0; j < len; j++) {
       if (array[j] == a) {
         count++;
       }
@@ -44,15 +58,12 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  char array[2000] = {'\0'};
-  filetoarray(f, array);
-  if (array[0] != '\0') {
-    int key = find_e(array);
-    fprintf(stdout, "%d\n", key);
-  }
-  else {
-    fprintf(stderr, "Invalid file\n");
-  }
+  int len = countchar(f);
+  char array[len];
+  FILE * a = fopen(argv[1], "r");
+  filetoarray(a, array);
+  int key = find_e(array, len);
+  fprintf(stdout, "%d\n", key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
