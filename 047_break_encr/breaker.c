@@ -4,7 +4,7 @@
 void filetoarray(FILE * f, char * array) {
   int c;
   int i = 0;
-  while (i < 3000 && ((c = fgetc(f)) != EOF)) {
+  while (i < 30000 && ((c = fgetc(f)) != EOF)) {
     if (isalpha(c)) {
       array[i] = c;
       i++;
