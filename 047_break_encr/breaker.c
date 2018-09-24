@@ -1,41 +1,30 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-void filetoarray(FILE * f, char * array) {
+int filetoarray(FILE * f) {
   int c;
-  int i = 0;
-  while (i < 3000 && ((c = fgetc(f)) != EOF)) {
+  int array[26] = {0};
+  while ((c = fgetc(f)) != EOF) {
     if (isalpha(c)) {
-      array[i] = c;
-      i++;
+      c = tolower(c);
+      array[c - 'a']++;
     }
   }
+  int largestIndex = 0;
+  for (int i = 1; i < 26; i++) {
+    if (array[i] > array[largestIndex]) {
+      largestIndex = i;
+    }
+  }
+  return largestIndex;
 }
 
-int find_e(char * array) {
-  int count = 0;
-  int max = 0;
-  char maxchar = 'e';
-  for (char a = 'a'; a <= 'z'; a++) {
-    for (int j = 0; array[j] != '\0'; j++) {
-      if (array[j] == a) {
-        count++;
-      }
-    }
-    if (count > max) {
-      max = count;
-      maxchar = a;
-    }
-    count = 0;
+int findkey(int r) {
+  r = r + 'a';
+  if (r < 'e') {
+    return r - 'e' + 26;
   }
-
-  if (maxchar < 'e') {
-    return maxchar - 'e' + 26;
-  }
-  if (maxchar == 'e') {
-    return 0;
-  }
-  return maxchar - 'e';
+  return r - 'e';
 }
 
 int main(int argc, char ** argv) {
@@ -51,9 +40,8 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  char array[3001] = {'\0'};
-  filetoarray(f, array);
-  int key = find_e(array);
+  int e = filetoarray(f);
+  int key = findkey(e);
   fprintf(stdout, "%d\n", key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
