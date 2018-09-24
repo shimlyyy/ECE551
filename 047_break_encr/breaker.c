@@ -1,8 +1,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-int filetoarray(FILE * f, char * array) {
+void filetoarray(FILE * f, char * array) {
   int c;
   int i = 0;
   while ((c = fgetc(f)) != EOF) {
@@ -11,15 +10,14 @@ int filetoarray(FILE * f, char * array) {
       i++;
     }
   }
-  return i;
 }
 
-int find_e(char * array, int len) {
+int find_e(char * array) {
   int count = 0;
   int max = 0;
   char maxchar;
   for (char a = 'a'; a <= 'z'; a++) {
-    for (int j = 0; j < len; j++) {
+    for (int j = 0; array[j] != '\0'; j++) {
       if (array[j] == a) {
         count++;
       }
@@ -28,6 +26,7 @@ int find_e(char * array, int len) {
       max = count;
       maxchar = a;
     }
+    count = 0;
   }
   return maxchar - 'e';
 }
@@ -38,13 +37,14 @@ void breaker(FILE * f, int key) {
     if (isalpha(c)) {
       c -= 'a';
       c -= key;
-      c %= 26;
+      while (c < 0) {
+        c += 26;
+      }
       c += 'a';
     }
     printf("%c", c);
   }
 }
-
 int main(int argc, char ** argv) {
   if (argc != 1) {
     fprintf(stderr, "Usage: breaker key inputFileName\n");
@@ -55,10 +55,10 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  char array[2000];
-  int count = filetoarray(f, array);
-  int key = find_e(array, count);
-  printf("key=%d\n", key);
+  char array[2000] = {'\0'};
+  filetoarray(f, array);
+  int key = find_e(array);
+  printf("%d\n", key);
   breaker(f, key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
