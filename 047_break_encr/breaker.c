@@ -32,11 +32,11 @@ int find_e(char * array) {
 }
 
 int main(int argc, char ** argv) {
-  if (argc != 1) {
+  if (argc != 2) {
     fprintf(stderr, "Usage: breaker key inputFileName\n");
     return EXIT_FAILURE;
   }
-  FILE * f = fopen(argv[0], "r");
+  FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("Could not open file");
     return EXIT_FAILURE;
@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
   char array[2000] = {'\0'};
   filetoarray(f, array);
   int key = find_e(array);
-  printf("%d\n", key);
+  fprintf(stdout, "%d\n", key);
   if (fclose(f) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
