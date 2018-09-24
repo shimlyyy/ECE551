@@ -1,25 +1,20 @@
-Grading at 09/24/2018:02:07:21.420625
-For commit ID 33ef3bdd6494e941d1b3ccc40c62a0caa47bdac7
+Grading at 09/24/2018:02:22:35.259669
+For commit ID 8e6aed47087b9d608871e50dd0182a644cc3bb9c
 running passed-in stu_imp ./breaker
 [33mWarning: fail to run make clean[0m
 [32mSuccessfully compiled .[0m
 ********************test case 1********************
-Exit status of your code: 1
+Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 0 lines, but we expected 1 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 1[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 1[0m
 ********************test case 2********************
-Exit status of your code: 1
+Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 0 lines, but we expected 1 lines.
 [31mIncorrect: your output did not match the expected output.[0m
 [31mfailed test case 2[0m
 ********************test case 3********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-Your output has 0 lines, but we expected 1 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 3[0m
-[31mfailed 3 out of 3 test cases[0m
+Exit status of your code: 139
+[31mtest case 3 Error: Your program had segmentation fault[0m
+[31mCannot continue testing[0m
 Overall Grade: F
