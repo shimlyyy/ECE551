@@ -4,7 +4,7 @@
 void filetoarray(FILE * f, char * array) {
   int c;
   int i = 0;
-  while (i < 30000 && ((c = fgetc(f)) != EOF)) {
+  while (i < 3000 && ((c = fgetc(f)) != EOF)) {
     if (isalpha(c)) {
       array[i] = c;
       i++;
@@ -44,11 +44,14 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   FILE * f = fopen(argv[1], "r");
+  if (argv[1] == NULL) {
+    return EXIT_FAILURE;
+  }
   if (f == NULL) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  char array[30001] = {'\0'};
+  char array[3001] = {'\0'};
   filetoarray(f, array);
   int key = find_e(array);
   fprintf(stdout, "%d\n", key);
