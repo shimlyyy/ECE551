@@ -1,5 +1,5 @@
-Grading at 09/25/2018:18:24:37.162053
-For commit ID d49aa365196e094704526c12a8f09203ee4bd611
+Grading at 09/25/2018:18:31:01.179316
+For commit ID e9c8d3d763ae4f98bfbbf3e905f4633f510565e9
 [32mSuccessfully compiled ['rotateMatrix.c'].[0m
 ********************test case 1********************
 Exit status of your code: 1
@@ -9,8 +9,8 @@ Exit status of your code: 1
 ********************test case 2********************
 Exit status of your code: 0
 [31mtest case 2 Error: valgrind was not clean,here are error suggestions:[0m
-[31m1 Syscall param write[0m
-[31m2 Conditional jump or move depends on uninitialised value[0m
+[31m1 Conditional jump or move depends on uninitialised value[0m
+[31m2 Syscall param write[0m
 [31m3  Address 0x522e2f0 is 0 bytes inside a block of size 4[0m
 [31mfailed test case 2[0m
 ********************test case 3********************
@@ -21,8 +21,8 @@ Exit status of your code: 1
 ********************test case 4********************
 Exit status of your code: 0
 [31mtest case 4 Error: valgrind was not clean,here are error suggestions:[0m
-[31m1 Syscall param write[0m
-[31m2 Conditional jump or move depends on uninitialised value[0m
+[31m1 Conditional jump or move depends on uninitialised value[0m
+[31m2 Syscall param write[0m
 [31m3  Address 0x522e2f0 is 0 bytes inside a block of size 4[0m
 [31mfailed test case 4[0m
 ********************test case 5********************
