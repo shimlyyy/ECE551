@@ -54,12 +54,5 @@ int main(int argc, char ** argv) {
     perror("Falied to close the input file!");
     return EXIT_FAILURE;
   }
-
-  /*  for (int i = 0; i < 10; i++) {
-    for (int j = 0; j < 10; j++) {
-      fprintf(stdout, "%c", reverse[i][j]);
-    }
-    fprintf(stdout, "\n");
-    }*/
   return EXIT_SUCCESS;
 }
