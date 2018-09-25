@@ -15,9 +15,13 @@ int main(int argc, char ** argv) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  char str[10][12];
+  char str[11][12];
   int i = 0;
   while (fgets(str[i], 12, f) != NULL) {
+    if (i == 10) {
+      fprintf(stderr, "too many lines");
+      return EXIT_FAILURE;
+    }
     if (strchr(str[i], '\n') == NULL) {
       fprintf(stderr, "line is too long\n");
       return EXIT_FAILURE;
@@ -25,9 +29,6 @@ int main(int argc, char ** argv) {
     if (strchr(str[i], '\n') - str[i] < 10) {
       fprintf(stderr, "line is too short\n");
       return EXIT_FAILURE;
-    }
-    if (str[i] == NULL) {
-      fprintf(stderr, "too many lines");
     }
     i++;
   }
