@@ -22,6 +22,9 @@ int main(int argc, char ** argv) {
       printf("line is too long");
       return EXIT_FAILURE;
     }
+    if (str[i] == NULL) {
+      return EXIT_FAILURE;
+    }
     i++;
   }
   char array[10][10];
