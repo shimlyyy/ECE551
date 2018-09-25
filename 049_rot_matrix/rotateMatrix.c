@@ -22,11 +22,17 @@ int main(int argc, char ** argv) {
       printf("line is too long");
       return EXIT_FAILURE;
     }
-    if (str[i] == NULL) {
+    if (strchr(str[i], '\n') - str[i] < 10) {
+      printf("line is too short");
       return EXIT_FAILURE;
     }
     i++;
   }
+  if (i != 10) {
+    printf("not correct lines");
+    return EXIT_FAILURE;
+  }
+
   char array[10][10];
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
