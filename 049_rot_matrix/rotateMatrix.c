@@ -19,17 +19,20 @@ int main(int argc, char ** argv) {
   int i = 0;
   while (fgets(str[i], 12, f) != NULL) {
     if (strchr(str[i], '\n') == NULL) {
-      printf("line is too long");
+      fprintf(stderr, "line is too long\n");
       return EXIT_FAILURE;
     }
     if (strchr(str[i], '\n') - str[i] < 10) {
-      printf("line is too short");
+      fprintf(stderr, "line is too short\n");
       return EXIT_FAILURE;
+    }
+    if (str[i] == NULL) {
+      fprintf(stderr, "too many lines");
     }
     i++;
   }
   if (i != 10) {
-    printf("not correct lines");
+    fprintf(stderr, "not correct lines\n");
     return EXIT_FAILURE;
   }
 
@@ -56,6 +59,6 @@ int main(int argc, char ** argv) {
       fprintf(stdout, "%c", reverse[i][j]);
     }
     fprintf(stdout, "\n");
-  }
-  return EXIT_SUCCESS;*/
+    }*/
+  return EXIT_SUCCESS;
 }
