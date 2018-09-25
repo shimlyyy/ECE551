@@ -1,5 +1,5 @@
-Grading at 09/25/2018:18:31:01.179316
-For commit ID e9c8d3d763ae4f98bfbbf3e905f4633f510565e9
+Grading at 09/25/2018:20:04:14.476602
+For commit ID 2d9a89be7d0817b5af65d05b2b42064767197e4f
 [32mSuccessfully compiled ['rotateMatrix.c'].[0m
 ********************test case 1********************
 Exit status of your code: 1
@@ -7,11 +7,10 @@ Exit status of your code: 1
 [32mCorrect: your code indicates this is a failure case.[0m
 [32mpassed test case 1[0m
 ********************test case 2********************
-Exit status of your code: 0
-[31mtest case 2 Error: valgrind was not clean,here are error suggestions:[0m
-[31m1 Conditional jump or move depends on uninitialised value[0m
-[31m2 Syscall param write[0m
-[31m3  Address 0x522e2f0 is 0 bytes inside a block of size 4[0m
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[31mtest case 2 Incorrect: your stderr is empty[0m
 [31mfailed test case 2[0m
 ********************test case 3********************
 Exit status of your code: 1
@@ -19,11 +18,10 @@ Exit status of your code: 1
 [32mCorrect: your code indicates this is a failure case.[0m
 [32mpassed test case 3[0m
 ********************test case 4********************
-Exit status of your code: 0
-[31mtest case 4 Error: valgrind was not clean,here are error suggestions:[0m
-[31m1 Conditional jump or move depends on uninitialised value[0m
-[31m2 Syscall param write[0m
-[31m3  Address 0x522e2f0 is 0 bytes inside a block of size 4[0m
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[31mtest case 4 Incorrect: your stderr is empty[0m
 [31mfailed test case 4[0m
 ********************test case 5********************
 Exit status of your code: 134
