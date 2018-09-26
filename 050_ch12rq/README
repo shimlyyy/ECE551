@@ -138,8 +138,7 @@ D. use fgets to determine how many bytes of space to malloc,
    then malloc that much space.
 
 10. If Y is not NULL, then what will getline 
-    assume about how much space is available
-    to store characters into?
+    assume about how much space is available    to store characters into?
 
 A.  It will assume that there are at least as
     many bytes as the length of the next line
