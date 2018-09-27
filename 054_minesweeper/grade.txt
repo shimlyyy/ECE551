@@ -1,0 +1,8 @@
+Grading at 09/27/2018:19:31:21.784932
+For commit ID 8b5e14439ad3e24a33876d9ee463dc893e731490
+[32mSuccessfully compiled ['minesweeper.c'].[0m
+********************test case 1********************
+Exit status of your code: 134
+[31mtest case 1 Error: double free or corruption[0m
+[31mCannot continue testing[0m
+Overall Grade: F
