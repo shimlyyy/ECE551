@@ -1,28 +1,25 @@
-Grading at 09/27/2018:21:16:09.479509
-For commit ID 89e16bc2715c49ffc61d72f315fbd9a5fc4a8d57
+Grading at 09/27/2018:21:51:00.505357
+For commit ID 8b196332dc3818df11f53c459fd86d9cd86dbaae
 [32mSuccessfully compiled ['minesweeper.c'].[0m
 ********************test case 1********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 25 lines, but we expected 38 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 1[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 1[0m
 ********************test case 2********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
 [32mCorrect: your output matched the expected output.[0m
 [32mpassed test case 2[0m
 ********************test case 3********************
-Exit status of your code: 1
+Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 61 lines, but we expected 78 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 3[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 3[0m
 ********************test case 4********************
-Exit status of your code: 1
+Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 100 lines, but we expected 99 lines.
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 4[0m
-[31mfailed 3 out of 4 test cases[0m
-Overall Grade: F
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 4[0m
+[32msuccessfully passed all 4 test cases[0m
+Overall Grade: A
