@@ -41,12 +41,15 @@ void addRandomMine(board_t * b) {
 
 board_t * makeBoard(int w, int h, int numMines) {
   board_t * p = malloc(sizeof(*p));
+  int * curr = NULL;
   p->height = h;
   p->totalMines = numMines;
   p->width = w;
   p->board = malloc(p->height * sizeof(*p->board));
   for (int i = 0; i < p->height; i++) {
-    p->board[i] = malloc(p->width * sizeof(**p->board));
+    curr = malloc(p->width * sizeof(**p->board));
+    p->board[i] = curr;
+    curr = NULL;
     for (int j = 0; j < p->width; j++) {
       p->board[i][j] = UNKNOWN;
     }
