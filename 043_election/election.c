@@ -46,7 +46,20 @@ state_t parseLine(const char * line) {
 
 unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
   //STEP 2: write me
-  return 0;
+  uint64_t str_half;
+  unsigned int totalvotes = 0;
+  for (size_t i = 0; i < nStates; i++) {
+    if (stateData[i].population % 2 == 0) {
+      str_half = stateData[i].population / 2;
+    }
+    else {
+      str_half = stateData[i].population / 2 + 1;
+    }
+    if (voteCounts[i] > str_half) {
+      totalvotes += stateData[i].electoralVotes;
+    }
+  }
+  return totalvotes;
 }
 
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
