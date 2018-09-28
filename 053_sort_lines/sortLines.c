@@ -47,6 +47,10 @@ int main(int argc, char ** argv) {
     }
     getfile(f);
     i++;
+    if (fclose(f) != 0) {
+      perror("failed to close");
+      return EXIT_FAILURE;
+    }
   }
   return EXIT_SUCCESS;
 }
