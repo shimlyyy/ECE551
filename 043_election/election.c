@@ -45,9 +45,10 @@ state_t parseLine(const char * line) {
 
 unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
   //STEP 2: write me
-  size_t count = 0;
   state_t * check = stateData;
+  size_t count = 0;
   while (check != NULL) {
+    check++;
     count++;
   }
   if (count != nStates) {
