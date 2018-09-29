@@ -45,16 +45,6 @@ state_t parseLine(const char * line) {
 
 unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
   //STEP 2: write me
-  state_t * check = stateData;
-  size_t count = 0;
-  while (check != NULL) {
-    check++;
-    count++;
-  }
-  if (count != nStates) {
-    fprintf(stderr, "input is invalid");
-    exit(EXIT_FAILURE);
-  }
   unsigned int totalvotes = 0;
   for (size_t i = 0; i < nStates; i++) {
     if (2 * voteCounts[i] > stateData[i].population) {
