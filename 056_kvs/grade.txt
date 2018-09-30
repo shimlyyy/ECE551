@@ -1,23 +1,12 @@
-Grading at 09/30/2018:05:36:21.657642
-For commit ID 391a79b50053a798a9bf668cb315a3a352b19c11
+Grading at 09/30/2018:06:03:27.166094
+For commit ID 3ef379d4d5d32d8ffc3e8bebd911d21b8349253e
 ********************test case 1********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
-unexpected line length in line 2
-line 2:   [31mkey='apple' value='red'[0m
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 1[0m
-********************test case 2********************
-Exit status of your code: 0
-[32mValgrind was clean[0m
-unexpected line length in line 2
-line 2:   [31mkey='apple' value='red=fruit'[0m
-[31mIncorrect: your output did not match the expected output.[0m
-[31mfailed test case 2[0m
-********************test case 3********************
-Exit status of your code: 0
-[32mValgrind was clean[0m
 [32mCorrect: your output matched the expected output.[0m
-[32mpassed test case 3[0m
-[31mfailed 2 out of 3 test cases[0m
+[32mpassed test case 1[0m
+********************test case 2********************
+Exit status of your code: 139
+[31mtest case 2 Error: Your program had segmentation fault[0m
+[31mCannot continue testing[0m
 Overall Grade: F
