@@ -1,0 +1,19 @@
+Grading at 09/30/2018:04:55:08.552268
+For commit ID 1fbeba70028c516d05c9e21c16dff74fceaab768
+********************test case 1********************
+Exit status of your code: 0
+[31mtest case 1 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Memory leak error: detected direct lost[0m
+[31mfailed test case 1[0m
+********************test case 2********************
+Exit status of your code: 0
+[31mtest case 2 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Memory leak error: detected direct lost[0m
+[31mfailed test case 2[0m
+********************test case 3********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 3[0m
+[31mfailed 2 out of 3 test cases[0m
+Overall Grade: F
