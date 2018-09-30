@@ -14,16 +14,16 @@ state_t parseLine(const char * line) {
     check++;
   }
   if (count != 2) {
-    fprintf(stderr, "input is invalid");
+    fprintf(stderr, "input is invalid\n");
+    exit(EXIT_FAILURE);
+  }
+  if (strchr(line, ':') - line >= MAX_STATE_NAME_LENGTH) {
+    fprintf(stderr, "name is too long\n");
     exit(EXIT_FAILURE);
   }
   state_t state;
   size_t i = 0;
   while (line[i] != ':') {
-    if (i == MAX_STATE_NAME_LENGTH) {
-      fprintf(stderr, "name is too long. Invalid input");
-      exit(EXIT_FAILURE);
-    }
     state.name[i] = line[i];
     i++;
   }
