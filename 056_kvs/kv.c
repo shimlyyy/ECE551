@@ -14,7 +14,7 @@ kvpair_t * getOne(char * curr) {
     check++;
   }
   if (ch != 1) {
-    return NULL;
+    exit(EXIT_FAILURE);
   }
 
   int lenKey = strchr(curr, '=') - curr;
