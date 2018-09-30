@@ -13,7 +13,7 @@ kvpair_t * getOne(char * curr) {
     }
     check++;
   }
-  if (ch != 1) {
+  if (ch > 2) {
     exit(EXIT_FAILURE);
   }
 
