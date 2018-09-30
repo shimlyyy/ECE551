@@ -5,6 +5,18 @@
 #include <string.h>
 
 kvpair_t * getOne(char * curr) {
+  char * check = curr;
+  int ch = 0;
+  while (*check != '\0') {
+    if (*check == '=') {
+      ch++;
+    }
+    check++;
+  }
+  if (ch != 1) {
+    return NULL;
+  }
+
   int lenKey = strchr(curr, '=') - curr;
   char * array = malloc((lenKey + 1) * sizeof(*array));
   int i = 0;
@@ -74,7 +86,7 @@ void freeKVs(kvarray_t * pairs) {
 void printKVs(kvarray_t * pairs) {
   //WRITE ME
   for (int i = 0; i < pairs->numPerson; i++) {
-    printf("key='%s' value='%s'\n", pairs->person[i]->key, pairs->person[i]->value);
+    printf("key = '%s' value = '%s'\n", pairs->person[i]->key, pairs->person[i]->value);
   }
 }
 
