@@ -1,12 +1,20 @@
-Grading at 09/30/2018:06:03:27.166094
-For commit ID 3ef379d4d5d32d8ffc3e8bebd911d21b8349253e
+Grading at 09/30/2018:06:05:50.215943
+For commit ID 1ab8dd46e73658f8ba4a7c6c0de612ce9f382aa2
 ********************test case 1********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
 [32mCorrect: your output matched the expected output.[0m
 [32mpassed test case 1[0m
 ********************test case 2********************
-Exit status of your code: 139
-[31mtest case 2 Error: Your program had segmentation fault[0m
-[31mCannot continue testing[0m
-Overall Grade: F
+Exit status of your code: 1
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 12 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 2[0m
+********************test case 3********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 3[0m
+[31mfailed 1 out of 3 test cases[0m
+Overall Grade: D
