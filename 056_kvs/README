@@ -1,6 +1,5 @@
 For the next 4 problems, you will be doing one slightly larger program, which
 we will cut up into 4 discretely testable pieces. 
-
 The big picture it that your program will read two types of input files.
 The first type of input file (which your program will read one of) will have the format:
 
