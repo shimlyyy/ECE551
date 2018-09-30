@@ -31,6 +31,9 @@ kvpair_t * getOne(char * curr) {
 
 kvarray_t * readKVs(const char * fname) {
   //WRITE ME
+  if (fname == NULL) {
+    return NULL;
+  }
   FILE * f = fopen(fname, "r");
   if (f == NULL) {
     return NULL;
@@ -43,11 +46,17 @@ kvarray_t * readKVs(const char * fname) {
   while (getline(&curr, &linecap, f) >= 0) {
     answer->person = realloc(answer->person, (i + 1) * sizeof(*answer->person));
     answer->person[i] = getOne(curr);
+    free(curr);
     curr = NULL;
     i++;
   }
   free(curr);
+
   answer->numPerson = i;
+  if (fclose(f) != 0) {
+    perror("Failed to close the file");
+    return NULL;
+  }
   return answer;
 }
 
