@@ -1,0 +1,22 @@
+Grading at 10/02/2018:01:47:59.053175
+For commit ID 4e90b47e8f511ce78e0b32e0297295c8591ed5f6
+********************test case 1********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 7 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 1[0m
+********************test case 2********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 1 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 2[0m
+********************test case 3********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 8 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 3[0m
+[31mfailed 3 out of 3 test cases[0m
+Overall Grade: F
