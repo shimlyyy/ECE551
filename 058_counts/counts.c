@@ -24,6 +24,7 @@ int contains(one_count_t ** array, const char * str, int n) {
   int i = 0;
   while (i < n) {
     if (strcmp(array[i]->str, str) == 0) {
+      array[i]->count++;
       return 0;
     }
     i++;
@@ -37,15 +38,8 @@ void addCount(counts_t * c, const char * name) {
     c->unknown++;
   }
   else {
-    if (contains(c->valueName, name, c->numValue) == 0) {
-      for (int j = 0; j < c->numValue; j++) {
-        if (strcmp(c->valueName[j]->str, name) == 0) {
-          c->valueName[j]->count++;
-        }
-      }
-    }
     if (contains(c->valueName, name, c->numValue) == 1) {
-      c = addValueToList(c, name);
+      addValueToList(c, name);
     }
   }
 }
