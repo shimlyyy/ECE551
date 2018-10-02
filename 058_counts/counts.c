@@ -50,7 +50,7 @@ void printCounts(counts_t * c, FILE * outFile) {
     printf("%s: %d\n", c->valueName[i]->str, c->valueName[i]->count);
   }
   if (c->unknown != 0) {
-    printf("<unknown> : %d\n", c->unknown);
+    fprintf(outFile, "<unknown> : %d\n", c->unknown);
   }
 }
 
