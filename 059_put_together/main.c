@@ -21,27 +21,16 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   size_t k = 0;
   while (getline(&curr, &linecap, f) >= 0) {
     lines = realloc(lines, (k + 1) * sizeof(*lines));
-    lines[k] = curr;
+    *strchr(curr, '\n') = '\0';
+    lines[k] = lookupValue(kvPairs, curr);
+    free(curr);
+    addCount(c, lines[k]);
     curr = NULL;
     k++;
   }
   free(curr);
-  char ** value = NULL;
-  for (size_t i = 0; i < k; i++) {
-    size_t ii = 0;
-    while (lines[i][ii] != '\n') {
-      ii++;
-    }
-    lines[i][ii] = '\0';
-    value = realloc(value, (i + 1) * sizeof(*value));
-    value[i] = lookupValue(kvPairs, lines[i]);
-    free(lines[i]);
-  }
   free(lines);
-  for (size_t i = 0; i < k; i++) {
-    addCount(c, value[i]);
-  }
-  free(value);
+
   if (fclose(f) != 0) {
     perror("failed to close");
     exit(EXIT_FAILURE);
