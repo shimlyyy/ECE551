@@ -57,11 +57,11 @@ int main(int argc, char ** argv) {
   }
   kvarray_t * array = readKVs(argv[1]);
   //read the key/value pairs from the file named by argv[1] (call the result kv)
-  for (int i = 2; i < argc; i++) {
-    //count from 2 to argc (call the number you count i)
-    counts_t * c = countFile(argv[i], array);
-    //count the values that appear in the file named by argv[i], using kv as the key/value pair
-    //   (call this result c)
+  for (int i = 2; i < argc; i++) {  //count from 2 to argc (call the number you count i)
+    counts_t * c = countFile(
+        argv[i],
+        array);  //count the values that appear in the file named by argv[i], using kv as the key/value pair
+                 //   (call this result c)
     char * fname = computeOutputFileName(argv[i]);
     FILE * output_file = fopen(fname, "w");
     //compute the output file name from argv[i] (call this outName)
