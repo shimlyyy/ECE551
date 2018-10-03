@@ -5,8 +5,8 @@
 #include <string.h>
 
 kvpair_t * getOne(char * curr) {
-  char * check = curr;
-  /*  int ch = 0;
+  /* char * check = curr;
+    int ch = 0;
   while (*check != '\0') {
     if (*check == '=') {
       ch++;
