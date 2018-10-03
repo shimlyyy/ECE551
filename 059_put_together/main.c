@@ -53,7 +53,7 @@ int main(int argc, char ** argv) {
   //WRITE ME (plus add appropriate error checking!)
   if (argc == 1) {
     fprintf(stderr, "Invalid input\n");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
   kvarray_t * array = readKVs(argv[1]);
   //read the key/value pairs from the file named by argv[1] (call the result kv)
