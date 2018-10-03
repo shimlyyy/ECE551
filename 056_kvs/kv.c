@@ -6,7 +6,7 @@
 
 kvpair_t * getOne(char * curr) {
   char * check = curr;
-  int ch = 0;
+  /*  int ch = 0;
   while (*check != '\0') {
     if (*check == '=') {
       ch++;
@@ -15,7 +15,7 @@ kvpair_t * getOne(char * curr) {
   }
   if (ch > 2) {
     exit(EXIT_FAILURE);
-  }
+    }*/
 
   int lenKey = strchr(curr, '=') - curr;
   char * array = malloc((lenKey + 1) * sizeof(*array));
