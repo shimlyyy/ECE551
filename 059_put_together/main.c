@@ -51,7 +51,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
 
 int main(int argc, char ** argv) {
   //WRITE ME (plus add appropriate error checking!)
-  if (argc == 1) {
+  if (argc <= 2) {
     fprintf(stderr, "Invalid input\n");
     exit(EXIT_FAILURE);
   }
@@ -65,7 +65,6 @@ int main(int argc, char ** argv) {
     char * fname = computeOutputFileName(argv[i]);
     FILE * output_file = fopen(fname, "w");
     //compute the output file name from argv[i] (call this outName)
-
     //open the file named by outName (call that f)
     printCounts(c, output_file);
     //print the counts from c into the FILE f
