@@ -1,25 +1,18 @@
-Grading at 10/03/2018:05:46:25.556823
-For commit ID 970ed862baa68264c8a89d6ccd7dd432bbf15617
+Grading at 10/03/2018:05:56:10.204647
+For commit ID 2277cbc757a2ff43b95c94698f9160a752756d4c
 running passed-in stu_imp ./count_values
-[32mSuccessfully compiled .[0m
-********************test case 1********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[32mCorrect: your code indicates this is a failure case.[0m
-[32mpassed test case 1[0m
-********************test case 2********************
-Exit status of your code: 0
-[32mValgrind was clean[0m
-[32mCorrect: your output matched the expected output.[0m
-[32mpassed test case 2[0m
-********************test case 3********************
-Exit status of your code: 0
-[32mValgrind was clean[0m
-[32mCorrect: your output matched the expected output.[0m
-[32mpassed test case 3[0m
-********************test case 4********************
-Exit status of your code: 1
-[32mValgrind was clean[0m
-[31merror: expected file does not exit[0m
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 outname.c
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 counts.c
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 main.c
+gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 kv.c
+kv.c: In function ‘getOne’:
+kv.c:8:10: error: unused variable ‘check’ [-Werror=unused-variable]
+   char * check = curr;
+          ^~~~~
+cc1: all warnings being treated as errors
+Makefile:10: recipe for target 'kv.o' failed
+make: *** [kv.o] Error 1
+
+[31mError: fail to run makefile[0m
 [31mCannot continue testing[0m
 Overall Grade: F
