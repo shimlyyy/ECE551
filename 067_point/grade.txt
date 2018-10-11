@@ -1,0 +1,10 @@
+Grading at 10/11/2018:23:02:19.853693
+For commit ID 27be3dffd9eb7a2b2a005cc275c76f1ab410e2c2
+Attempting to compile:
+rm -f  point.o  main.o points *~
+g++ -c -Wall -Werror -std=gnu++98 -pedantic -ggdb3 point.cpp
+g++ -c -Wall -Werror -std=gnu++98 -pedantic -ggdb3 main.cpp
+g++ -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o points  point.o  main.o
+Your output did not match what we expected.
+
+Overall Grade: FAILED
