@@ -5,8 +5,8 @@
 #include <stdlib.h>
 
 void Point::move(double dx, double dy) {
-  x = dx;
-  y = dy;
+  x = x + dx;
+  y = y + dy;
 }
 
 double Point::distanceFrom(const Point & p) {
