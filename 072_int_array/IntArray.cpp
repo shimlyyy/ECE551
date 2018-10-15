@@ -75,6 +75,9 @@ bool IntArray::operator!=(const IntArray & rhs) const {
 }
 
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
+  if (rhs.size() <= 0) {
+    exit(EXIT_FAILURE);
+  }
   s << "{";
   for (int i = 0; i < rhs.size(); i++) {
     if (i == rhs.size() - 1) {
