@@ -1,7 +1,6 @@
 For this problem, you will be writing an IntArray class.  This class will hold
 an array of ints, as well as the nubmer of elements in the array.  It will
 provide the following functionality:
-
  - A default constructor  
      o Initalizes the size to 0, and the array to NULL
  - A constructor which takes an int
