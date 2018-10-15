@@ -51,7 +51,7 @@ bool IntArray::operator==(const IntArray & rhs) const {
   if (numElements == rhs.numElements) {
     int i = 0;
     while (data[i] == rhs.data[i]) {
-      if (i == numElements) {
+      if (i == numElements - 1) {
         return true;
       }
       i++;
@@ -64,14 +64,24 @@ bool IntArray::operator!=(const IntArray & rhs) const {
   if (numElements != rhs.numElements) {
     return true;
   }
-  int i = 0;
-  while (i < numElements) {
-    if (data[i] != rhs.data[1]) {
+
+  for (int i = 0; i < numElements; i++) {
+    if (data[i] != rhs.data[i]) {
       return true;
     }
-    i++;
   }
+
   return false;
 }
 
-std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {}
+std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
+  s << "{";
+  for (int i = 0; i < rhs.size(); i++) {
+    if (i == rhs.size() - 1) {
+      s << rhs.operator[](i) << "}";
+      break;
+    }
+    s << rhs.operator[](i) << ", ";
+  }
+  return s;
+}
