@@ -48,6 +48,9 @@ int IntArray::size() const {
 }
 
 bool IntArray::operator==(const IntArray & rhs) const {
+  if (numElements == 0 && rhs.numElements == 0) {
+    return true;
+  }
   if (numElements == rhs.numElements) {
     int i = 0;
     while (data[i] == rhs.data[i]) {
@@ -63,6 +66,9 @@ bool IntArray::operator==(const IntArray & rhs) const {
 bool IntArray::operator!=(const IntArray & rhs) const {
   if (numElements != rhs.numElements) {
     return true;
+  }
+  if (numElements == 0 && rhs.numElements == 0) {
+    return false;
   }
 
   for (int i = 0; i < numElements; i++) {
