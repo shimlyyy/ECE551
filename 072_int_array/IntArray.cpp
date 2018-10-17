@@ -94,10 +94,10 @@ std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   s << "{";
   for (int i = 0; i < rhs.size(); i++) {
     if (i == rhs.size() - 1) {
-      s << rhs.operator[](i) << "}";
+      s << rhs[i] << "}";
       break;
     }
-    s << rhs.operator[](i) << ", ";
+    s << rhs[i] << ", ";
   }
   return s;
 }
