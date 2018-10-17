@@ -6,7 +6,16 @@
 
 IntArray::IntArray() : data(NULL), numElements(0) {}
 
-IntArray::IntArray(int n) : data(new int[n]), numElements(n) {}
+IntArray::IntArray(int n) {
+  if (n <= 0) {
+    data = NULL;
+    numElements = 0;
+  }
+  else {
+    data = new int[n];
+    numElements = n;
+  }
+}
 
 IntArray::IntArray(const IntArray & rhs) :
     data(new int[rhs.numElements]),
