@@ -108,7 +108,22 @@ IntMatrix IntMatrix::operator+(const IntMatrix & rhs) const {
 }
 
 std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs) {
-  if (rhs.getColumns() == 0) {
+  if (rhs.getColumns() == 0 && rhs.getRows() == 0) {
+    s << "[  ]";
+    return s;
+  }
+  if (rhs.getRows() != 0 && rhs.getColumns() == 0) {
+    s << "[ ";
+    for (int i = 0; i < rhs.getRows(); i++) {
+      if (i == rhs.getRows() - 1) {
+        s << "{} ]";
+        break;
+      }
+      s << "{},\n";
+    }
+    return s;
+  }
+  if (rhs.getRows() == 0 && rhs.getColumns() != 0) {
     s << "[  ]";
     return s;
   }
