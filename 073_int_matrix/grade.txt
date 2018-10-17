@@ -1,0 +1,38 @@
+Grading at 10/17/2018:15:48:03.465703
+For commit ID a41abc094c1e509b0687d6e9d984e506d7fd4299
+Attempting to compile:
+rm -f *.o  *~ intMatrixTest
+#################################################
+testcase1:
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
+#################################################
+testcase2:
+valgrind reported memory errors
+#################################################
+testcase3:
+Your output is incorrect
+#################################################
+testcase4:
+valgrind reported memory errors
+#################################################
+testcase5:
+Your output is incorrect
+#################################################
+testcase6:
+valgrind reported memory errors
+#################################################
+testcase7:
+Your output is incorrect
+#################################################
+testcase8:
+Your output is incorrect
+#################################################
+testcase9:
+Your output is incorrect
+#################################################
+testcase10:
+Your output is incorrect
+
+Overall Grade: F
