@@ -127,6 +127,7 @@ std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs) {
     s << "[  ]";
     return s;
   }
+
   s << "[ ";
   for (int i = 0; i < rhs.getRows() - 1; i++) {
     s << "{";
