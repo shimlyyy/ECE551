@@ -19,16 +19,19 @@ char * time2str(const time_t * when, long ns) {
   snprintf(ans, 128, "%s.%09ld %s", temp1, ns, temp2);
   return ans;
 }
+//This function is for step1,it shows the first three lines
+//And according to step 6 and step7, fix the output
 void step1(struct stat sb, char * argv) {
   if (S_ISLNK(sb.st_mode)) {
     char linktarget[256];
     ssize_t len = readlink(argv, linktarget, 256);
     linktarget[len] = '\0';
-    printf("  File: %s -> %s\n", argv, linktarget);
+    printf("  File: %s -> %s\n", argv, linktarget);  //the first line
   }
   else {
     printf("  File: %s\n", argv);
   }
+  //the second line
   printf(
       "  Size: %-10lu\tBlocks: %-10lu IO Block: %-6lu ", sb.st_size, sb.st_blocks, sb.st_blksize);
 
@@ -58,6 +61,8 @@ void step1(struct stat sb, char * argv) {
       printf("unknown\n");
       break;
   }
+
+  //the third line
   printf(
       "Device: %lxh/%lud\tInode: %-10lu  Links: %lu", sb.st_dev, sb.st_dev, sb.st_ino, sb.st_nlink);
 
@@ -68,10 +73,10 @@ void step1(struct stat sb, char * argv) {
     printf("\n");
   }
 }
-
+//this function is for step2, it shows access
 void step2(struct stat sb) {
   printf("Access: (%04o/", sb.st_mode & ~S_IFMT);
-  switch (sb.st_mode & S_IFMT) {
+  switch (sb.st_mode & S_IFMT) {  //shows the permissions
     case S_IFBLK:
       printf("b");
       break;
@@ -94,7 +99,7 @@ void step2(struct stat sb) {
       printf("s");
       break;
   }
-
+  //output based on S_IRUSR, S_IWUSR, S_IXUSR
   switch (sb.st_mode & S_IRUSR) {
     case 0:
       printf("-");
@@ -121,7 +126,7 @@ void step2(struct stat sb) {
       printf("x");
       break;
   }
-
+  //output based on S_IRGRP, S_IWGRP, S_IXGRP
   switch (sb.st_mode & S_IRGRP) {
     case 0:
       printf("-");
@@ -148,7 +153,7 @@ void step2(struct stat sb) {
       printf("x");
       break;
   }
-
+  //output based on S_IROTH, S_IWOTH, S_IXOTH
   switch (sb.st_mode & S_IROTH) {
     case 0:
       printf("-");
@@ -176,7 +181,7 @@ void step2(struct stat sb) {
       break;
   }
 }
-
+//this function is for step3, shows the rest of fourth line
 void step3(struct stat sb) {
   printf("  Uid: (%5d/", sb.st_uid);
   struct passwd * pwd = getpwuid(sb.st_uid);
@@ -186,6 +191,7 @@ void step3(struct stat sb) {
   printf("%8s)\n", grp->gr_name);
 }
 
+//this function is for step4, shows the final line
 void step4(struct stat sb) {
   char * atimestr = time2str(&sb.st_atime, sb.st_atim.tv_nsec);
   printf("Access: %s\n", atimestr);
@@ -201,11 +207,11 @@ void step4(struct stat sb) {
 
 int main(int argc, char ** argv) {
   struct stat sb;
-  if (argc < 2) {
+  if (argc < 2) {  //check the input
     fprintf(stderr, "stat: missing operand\n");
     exit(EXIT_FAILURE);
   }
-  for (int i = 1; i < argc; i++) {
+  for (int i = 1; i < argc; i++) {  //according to step5, the program can takes different arguments
     if (lstat(argv[i], &sb) == -1) {
       perror("stat");
       exit(EXIT_FAILURE);
