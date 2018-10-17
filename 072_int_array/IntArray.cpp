@@ -7,9 +7,9 @@
 IntArray::IntArray() : data(NULL), numElements(0) {}
 
 IntArray::IntArray(int n) {
-  if (n <= 0) {
+  if (n == 0) {
     data = NULL;
-    numElements = 0;
+    numElements = n;
   }
   else {
     data = new int[n];
