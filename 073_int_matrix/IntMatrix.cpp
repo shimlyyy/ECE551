@@ -21,10 +21,7 @@ IntMatrix::IntMatrix(const IntMatrix & rhs) : numRows(rhs.numRows), numColumns(r
   else {
     rows = new IntArray *[numRows];
     for (int i = 0; i < numRows; i++) {
-      rows[i] = new IntArray(numColumns);
-      for (int j = 0; j < numColumns; j++) {
-        rows[i]->operator[](j) = rhs.rows[i]->operator[](j);
-      }
+      rows[i] = new IntArray(rhs[i]);
     }
   }
 }
@@ -47,10 +44,7 @@ IntMatrix & IntMatrix::operator=(const IntMatrix & rhs) {
     else {
       IntArray ** temp = new IntArray *[rhs.numRows];
       for (int i = 0; i < rhs.numRows; i++) {
-        temp[i] = new IntArray(rhs.numColumns);
-        for (int j = 0; j < rhs.numColumns; j++) {
-          temp[i]->operator[](j) = rhs.rows[i]->operator[](j);
-        }
+        temp[i] = new IntArray(rhs[i]);
       }
       this->~IntMatrix();
       numRows = rhs.numRows;
@@ -85,7 +79,7 @@ bool IntMatrix::operator==(const IntMatrix & rhs) const {
   if (numRows == rhs.numRows && (numColumns == rhs.numColumns)) {
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j < numColumns; j++) {
-        if (rows[i]->operator[](j) != rhs.rows[i]->operator[](j)) {
+        if ((*this)[i][j] != rhs[i][j]) {
           return false;
         }
       }
@@ -101,7 +95,7 @@ IntMatrix IntMatrix::operator+(const IntMatrix & rhs) const {
   IntMatrix sum(numRows, numColumns);
   for (int i = 0; i < numRows; i++) {
     for (int j = 0; j < numColumns; j++) {
-      sum.rows[i]->operator[](j) = rows[i]->operator[](j) + rhs.rows[i]->operator[](j);
+      sum[i][j] = (*this)[i][j] + rhs[i][j];
     }
   }
   return sum;
@@ -130,19 +124,19 @@ std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs) {
 
     for (int j = 0; j < rhs.getColumns(); j++) {
       if (j == rhs.getColumns() - 1) {
-        s << rhs.operator[](i).operator[](j) << "},\n";
+        s << rhs[i][j] << "},\n";
         break;
       }
-      s << rhs.operator[](i).operator[](j) << ", ";
+      s << rhs[i][j] << ", ";
     }
   }
   s << "{";
   for (int j = 0; j < rhs.getColumns(); j++) {
     if (j == rhs.getColumns() - 1) {
-      s << rhs.operator[](rhs.getRows() - 1).operator[](j) << "} ]";
+      s << rhs[rhs.getRows() - 1][j] << "} ]";
       break;
     }
-    s << rhs.operator[](rhs.getRows() - 1).operator[](j) << ", ";
+    s << rhs[rhs.getRows() - 1][j] << ", ";
   }
   return s;
 }
