@@ -48,12 +48,12 @@ class Matrix
   int getColumns() const { return numColumns; }
 
   const std::vector<T> & operator[](int index) const {
-    assert(index < numRows);
+    assert(0 <= index && index < numRows);
     return rows[index];
   }
 
   std::vector<T> & operator[](int index) {
-    assert(index < numRows);
+    assert(0 <= index && index < numRows);
     return rows[index];
   }
 
