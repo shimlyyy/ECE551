@@ -12,59 +12,32 @@ struct myclass {
   bool operator()(std::string i, std::string j) { return (i < j); }
 } myobject;
 
-/*void getfile(std::ifstream input){
+void getfile(std::istream & input) {
   std::string line;
   std::vector<std::string> s;
-  while(getline(input,line)){
+  while (getline(input, line)) {
     s.push_back(line);
   }
-  if(s.size()>1){
-   size_t  a=s.size()/2;
-   std::sort (s.begin(),s.begin()+a);
-   std::sort (s.begin()+a,s.end(),myfunction);
-   std::sort (s.begin(),s.end(),myobject);
+  if (s.size() > 1) {
+    size_t a = s.size() / 2;
+    std::sort(s.begin(), s.begin() + a);
+    std::sort(s.begin() + a, s.end(), myfunction);
+    std::sort(s.begin(), s.end(), myobject);
   }
-  for(std::vector<std::string>::iterator it=s.begin();it!=s.end();++it){
-    std::cout<<*it;
+  for (std::vector<std::string>::iterator it = s.begin(); it != s.end(); ++it) {
+    std::cout << *it << "\n";
   }
-  }*/
+}
 
 int main(int argc, char * argv[]) {
   if (argc == 1) {
-    std::string line;
-    std::vector<std::string> s;
-    while (getline(std::cin, line)) {
-      s.push_back(line);
-    }
-    if (s.size() > 1) {
-      size_t a = s.size() / 2;
-      std::sort(s.begin(), s.begin() + a);
-      std::sort(s.begin() + a, s.end(), myfunction);
-      std::sort(s.begin(), s.end(), myobject);
-    }
-
-    for (std::vector<std::string>::iterator it = s.begin(); it != s.end(); ++it) {
-      std::cout << *it << "\n";
-    }
+    getfile(std::cin);
   }
 
   for (int i = 1; i < argc; i++) {
     std::ifstream input(argv[i]);
     if (input) {
-      std::string line;
-      std::vector<std::string> s;
-      while (getline(input, line)) {
-        s.push_back(line);
-      }
-      if (s.size() > 1) {
-        size_t a = s.size() / 2;
-        std::sort(s.begin(), s.begin() + a);
-        std::sort(s.begin() + a, s.end(), myfunction);
-        std::sort(s.begin(), s.end(), myobject);
-      }
-      for (std::vector<std::string>::iterator it = s.begin(); it != s.end(); ++it) {
-        std::cout << *it << "\n";
-      }
+      getfile(input);
     }
     else {
       std::cerr << "can't open";
