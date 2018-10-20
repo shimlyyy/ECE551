@@ -31,10 +31,11 @@ class Matrix
 
   Matrix & operator=(const Matrix & rhs) {
     if (this != &rhs) {
-      std::vector<std::vector<T> > temp(rhs.numRows);
-      for (int i = 0; i < rhs.numRows; i++) {
+      std::vector<std::vector<T> > temp(rhs.rows);  //(rhs.numRows);
+      /* for (int i = 0; i < rhs.numRows; i++) {
         temp[i] = rhs.rows[i];
-      }
+	}*/
+
       this->~Matrix();
       numRows = rhs.numRows;
       numColumns = rhs.numColumns;
@@ -58,15 +59,18 @@ class Matrix
   }
 
   bool operator==(const Matrix & rhs) const {
-    if (numRows != rhs.numRows || numColumns != rhs.numColumns) {
+    /* if (numRows != rhs.numRows || numColumns != rhs.numColumns) {
       return false;
     }
-    if (numRows == rhs.numRows && (numColumns == rhs.numColumns)) {
+   if (numRows == rhs.numRows && (numColumns == rhs.numColumns)) {
       for (int i = 0; i < numRows; i++) {
         if (rows[i] != rhs[i]) {
           return false;
         }
       }
+      }*/
+    if (rows != rhs.rows) {
+      return false;
     }
 
     return true;
