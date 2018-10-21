@@ -82,7 +82,7 @@ class Matrix
     Matrix sum(numRows, numColumns);
     for (int i = 0; i < numRows; i++) {
       for (int j = 0; j < numColumns; j++) {
-        sum.rows[i][j] = rows[i][j] + rhs.rows[i][j];
+        sum.rows[i][j] = (*this)[i][j] + rhs.rows[i][j];
       }
     }
     return sum;
