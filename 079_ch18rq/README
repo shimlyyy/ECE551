@@ -104,7 +104,7 @@ B. When it declares that it inherits from its parent class
 C. You write the parent class name, with the parameters in parenthesis
    in the first position of the initializer list.
 D. You call super() and pass paremetsr to it as the first line of hte constructor.
-
+ 
 10. Abstract classes cannot be instantiated, however, they are quite useful.
     Which other language features make them so useful?
 
