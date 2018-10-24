@@ -8,6 +8,7 @@ class Expression
 {
  public:
   virtual std::string toString() const = 0;
+  virtual long evaluate() const = 0;
   virtual ~Expression() {}
 };
 
@@ -25,7 +26,7 @@ class NumExpression : public Expression
     ss >> res;
     return res;
   }
-
+  virtual long evaluate() const { return num; }
   virtual ~NumExpression() {}
 };
 
@@ -44,6 +45,7 @@ class PlusExpression : public Expression
     res = ss.str();
     return res;
   }
+  virtual long evaluate() const { return l->evaluate() + r->evaluate(); }
   virtual ~PlusExpression() {
     delete l;
     delete r;
@@ -65,6 +67,8 @@ class MinusExpression : public Expression
     res = ss.str();
     return res;
   }
+  virtual long evaluate() const { return l->evaluate() - r->evaluate(); }
+
   virtual ~MinusExpression() {
     delete l;
     delete r;
@@ -86,6 +90,7 @@ class TimesExpression : public Expression
     res = ss.str();
     return res;
   }
+  virtual long evaluate() const { return l->evaluate() * r->evaluate(); }
   virtual ~TimesExpression() {
     delete l;
     delete r;
@@ -106,6 +111,7 @@ class DivExpression : public Expression
     res = ss.str();
     return res;
   }
+  virtual long evaluate() const { return l->evaluate() / r->evaluate(); }
   virtual ~DivExpression() {
     delete l;
     delete r;
