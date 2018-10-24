@@ -44,6 +44,9 @@ class PlusExpression : public Expression
     res = ss.str();
     return res;
   }
-  virtual ~PlusExpression(){};
+  virtual ~PlusExpression() {
+    delete l;
+    delete r;
+  };
 };
 #endif
