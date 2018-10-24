@@ -25,7 +25,7 @@ class Matrix
     }
   }
 
-  Matrix(const Matrix & rhs) : numRows(rhs.numRows), numColumns(rhs.numColumns) { rows = rhs.rows; }
+  Matrix(const Matrix & rhs) : numRows(rhs.numRows), numColumns(rhs.numColumns), rows(rhs.rows) {}
 
   ~Matrix() { rows.clear(); }
 
