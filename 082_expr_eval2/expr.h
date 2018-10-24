@@ -101,7 +101,7 @@ class DivExpression : public Expression
   std::string toString() const {
     std::ostringstream ss;
     std::string res;
-    ss << "(" << l->toString() << " * " << r->toString() << ")";
+    ss << "(" << l->toString() << " / " << r->toString() << ")";
     res = ss.str();
     return res;
   }
