@@ -6,7 +6,12 @@
 #include <string>
 class Expression
 {
+ protected:
+  Expression * l;
+  Expression * r;
+
  public:
+  Expression(Expression * lhs, Expression * rhs) : l(lhs), r(rhs) {}
   virtual std::string toString() const = 0;
   virtual ~Expression() {}
 };
@@ -17,7 +22,7 @@ class NumExpression : public Expression
   long num;
 
  public:
-  NumExpression(long i) : num(i) {}
+  NumExpression(long i) : Expression(NULL, NULL), num(i) {}
   virtual std::string toString() const {
     std::stringstream ss;
     std::string res;
@@ -29,12 +34,12 @@ class NumExpression : public Expression
 };
 class PlusExpression : public Expression
 {
- private:
+  /*private:
   Expression * l;
-  Expression * r;
+  Expression * r;*/
 
  public:
-  PlusExpression(Expression * lhs, Expression * rhs) : l(lhs), r(rhs) {}
+  PlusExpression(Expression * lhs, Expression * rhs) : Expression(lhs, rhs) {}
   std::string toString() const {
     std::ostringstream ss;
     std::string res;
@@ -50,12 +55,12 @@ class PlusExpression : public Expression
 
 class MinusExpression : public Expression
 {
- private:
+  /* private:
   Expression * l;
-  Expression * r;
+  Expression * r;*/
 
  public:
-  MinusExpression(Expression * lhs, Expression * rhs) : l(lhs), r(rhs) {}
+  MinusExpression(Expression * lhs, Expression * rhs) : Expression(lhs, rhs) {}
   std::string toString() const {
     std::ostringstream ss;
     std::string res;
@@ -71,12 +76,12 @@ class MinusExpression : public Expression
 
 class TimesExpression : public Expression
 {
- private:
+  /* private:
   Expression * l;
   Expression * r;
-
+  */
  public:
-  TimesExpression(Expression * lhs, Expression * rhs) : l(lhs), r(rhs) {}
+  TimesExpression(Expression * lhs, Expression * rhs) : Expression(lhs, rhs) {}
   std::string toString() const {
     std::ostringstream ss;
     std::string res;
@@ -92,12 +97,12 @@ class TimesExpression : public Expression
 
 class DivExpression : public Expression
 {
- private:
+  /* private:
   Expression * l;
   Expression * r;
-
+*/
  public:
-  DivExpression(Expression * lhs, Expression * rhs) : l(lhs), r(rhs) {}
+  DivExpression(Expression * lhs, Expression * rhs) : Expression(lhs, rhs) {}
   std::string toString() const {
     std::ostringstream ss;
     std::string res;
