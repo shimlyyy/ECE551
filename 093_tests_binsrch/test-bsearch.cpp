@@ -37,6 +37,7 @@ void check(Function<int, int> * f, int low, int high, int expected_ans, const ch
     printf("function %s between %d and %d success\n", mesg, low, high);
   }
   else {
+    printf("fucntion %s between %d and %d :answer is not equal to expected ans\n", mesg, low, high);
     exit(EXIT_FAILURE);
   }
 }
