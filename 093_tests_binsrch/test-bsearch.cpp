@@ -5,12 +5,6 @@
 
 #include "function.h"
 int binarySearchForZero(Function<int, int> * f, int low, int high);
-
-class SinFunction : public Function<int, int>
-{
- public:
-  virtual int invoke(int arg) { return 10000000 * (sin(arg / 100000.0) - 0.5); }
-};
 class linearFunction : public Function<int, int>
 {
  public:
@@ -54,11 +48,6 @@ class powerFunction : public Function<int, int>
 };
 
 int main(void) {
-  /* Function<int, int> * f = new SinFunction;
-  const char * mesg = "10000000 * (sin(arg / 100000.0) - 0.5";
-  Function<int, int> * a = new CountedIntFn(18, f, mesg);
-  check(a, 0, 150000, 52359, mesg);*/
-
   Function<int, int> * f2 = new linearFunction;
   const char * mesg2 = "2*arg+10";
   Function<int, int> * c = new CountedIntFn(8, f2, mesg2);
@@ -70,5 +59,6 @@ int main(void) {
   check(d, 0, 128, 2, mesg3);
   Function<int, int> * d1 = new CountedIntFn(8, f3, mesg3);
   check(d1, 2, 130, 2, mesg3);
+
   return EXIT_SUCCESS;
 }
