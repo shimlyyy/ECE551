@@ -1,0 +1,47 @@
+Grading at 11/03/2018:15:53:55.350619
+For commit ID d227082afcbc75b9a458e70f158c4cce3da67f5e
+**Testing broken implementation 1 **
+-------------------------------------
+
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+function 2*arg+10 between -138 and -10 success
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+function 2*arg+10 between -138 and -10 success
+function arg*(arg-2) between 0 and 128 success
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+
+**Testing correct implementation **
+-------------------------------------
+
+function 2*arg+10 between -138 and -10 success
+function arg*(arg-2) between 0 and 128 success
+function arg*(arg-2) between 2 and 130 success
+
+Your tests identified the problems with all broken programs
+
+Overall Grade: PASSED
