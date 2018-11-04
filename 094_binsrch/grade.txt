@@ -1,5 +1,5 @@
-Grading at 11/04/2018:19:21:08.442891
-For commit ID 34f7dd9effec84f0171eccbaf7ef9f60d09b33ff
+Grading at 11/04/2018:19:27:09.272676
+For commit ID 93f2c37bb2d0f8428299b07681ee86d0340c017f
 Stripping out any main you may have written, and compiling...
 Testcase 1
 -----------------
@@ -18,12 +18,14 @@ Testcase 3
   - Test Failed
 Testcase 4
 -----------------
-  - Valgrind showed memory leaks
-  - Valgrind reported errors (test failed).
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the wrong result
+  - Test Failed
 Testcase 5
 -----------------
-  - Valgrind showed memory leaks
-  - Valgrind reported errors (test failed).
+  - Valgrind was clean (no errors, no memory leaks)
+  - You got the wrong result
+  - Test Failed
 Testcase 6
 -----------------
   - Valgrind was clean (no errors, no memory leaks)
