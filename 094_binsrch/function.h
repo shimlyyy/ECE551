@@ -13,6 +13,9 @@ int binarySearchForZero(Function<int, int> * f, int low, int high) {
   if (high - low == 1) {
     return high - 1;
   }
+  if (mid == low) {
+    return low;
+  }
   int result = f->invoke(mid);
   if (result == 0) {
     return mid;
