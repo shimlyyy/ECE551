@@ -9,21 +9,28 @@ class Function
 };
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
-  if (f->invoke(high) < 0) {
-    return high - 1;
-  }
-  if (f->invoke(low) > 0) {
+  int mid = low + (high - low) / 2;
+  int result = f->invoke(mid);
+  if (mid == low) {
     return low;
   }
-  int mid = low + (high - low) / 2;
-  if (f->invoke(mid) == 0) {
+  if (mid == high) {
+    return mid - 1;
+  }
+  if (result == 0) {
     return mid;
   }
-  else if (f->invoke(mid) > 0) {
-    return binarySearchForZero(f, low, mid);
+  else if (result > 0) {
+    /* if (mid == low + 1) {
+      return low;
+      }*/
+    return binarySearchForZero(f, low, mid - 1);
   }
   else {
-    return binarySearchForZero(f, mid, low);
+    /* if (mid == high - 1) {
+      return mid;
+      }*/
+    return binarySearchForZero(f, mid + 1, high);
   }
 }
 #endif
