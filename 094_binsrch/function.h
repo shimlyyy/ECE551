@@ -11,7 +11,7 @@ class Function
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
   int mid = low + (high - low) / 2;
   if (high - low <= 1) {
-    return high - 1;
+    return low;
   }
   int result = f->invoke(mid);
   if (result == 0) {
@@ -21,7 +21,7 @@ int binarySearchForZero(Function<int, int> * f, int low, int high) {
     return binarySearchForZero(f, low, mid);
   }
   else {
-    return binarySearchForZero(f, mid + 1, high);
+    return binarySearchForZero(f, mid, high);
   }
 }
 #endif
