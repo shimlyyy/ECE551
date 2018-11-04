@@ -10,11 +10,8 @@ class Function
 
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
   int mid = low + (high - low) / 2;
-  if (high - low == 1) {
+  if (high - low <= 1) {
     return high - 1;
-  }
-  if (mid == low) {
-    return low;
   }
   int result = f->invoke(mid);
   if (result == 0) {
