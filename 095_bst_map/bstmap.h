@@ -1,8 +1,10 @@
-#ifndef __BSTMAP_H__
-#define __BSTMAP_H__
+#ifndef __bstMAP_H__
+#define __bstMAP_H__
+#include <cstdlib>
 #include <iostream>
 
 #include "map.h"
+using namespace std;
 template<typename K, typename V>
 class BstMap : public Map<K, V>
 {
@@ -14,50 +16,51 @@ class BstMap : public Map<K, V>
     V value;
     Node * left;
     Node * right;
-    Node() {}
-    Node(const K & k, const V & v) : key(k), value(v), left(NULL), right(NULL) {}
+    Node() : left(NULL), right(NULL) {}
+    Node(K k, V v, Node * left, Node * right) : key(k), value(v), left(left), right(right) {}
   };
   Node * root;
 
  public:
   BstMap() : root(NULL) {}
-  virtual void add(const K & key, const V & value) {
-    Node ** current = &root;
-    while (*current != NULL) {
-      if (key < (*current)->key) {
-        current = &(*current)->left;
-      }
-      else if (key == (*current)->key) {
-        (*current)->value = value;
-      }
-      else {
-        current = &(*current)->right;
-      }
+  BstMap(const BstMap & rhs) : root(NULL) { assign(rhs.root); }
+  BstMap & operator=(const BstMap & rhs) {
+    if (this != &rhs) {
+      free(root);
+      root = NULL;
+      assign(rhs.root);
     }
-    *current = new Node(key, value);
+    return *this;
   }
-  /*  virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
-    Node * current = root;
-    while (current != NULL) {
-      if (key == current->key) {
-        return current->value;
-      }
-      else if (key < current->key) {
-        current = current->left;
+  ~BstMap() { free(root); }
+  void assign(Node * curr) {
+    if (curr != NULL) {
+      assign(curr->left);
+      assign(curr->right);
+      add(curr->key, curr->value);
+    }
+  }
+  void free(const Node * curr) {
+    if (curr != NULL) {
+      free(curr->left);
+      free(curr->right);
+      delete curr;
+      curr = NULL;
+    }
+  }
+  virtual void add(const K & key, const V & value) {
+    Node ** curr = &root;
+    while (*curr != NULL) {
+      if (key < (*curr)->key) {
+        curr = &(*curr)->left;
       }
       else {
-        current = current->right;
+        curr = &(*curr)->right;
       }
     }
-    try {
-      if (current == NULL) {
-        throw std::invalid_argument("no such key");
-      }
-    }
-    catch (std::invalid_argument & ia) {
-      std::cerr << " Invalid_argument " << ia.what() << std::endl;
-    }
-    }*/
+    *curr = new Node(key, value, NULL, NULL);
+  }
+
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * curr = root;
     while (curr != NULL) {
@@ -73,48 +76,12 @@ class BstMap : public Map<K, V>
     }
     throw std::invalid_argument("No such key in the tree");
   }
-
-  /* virtual void remove(const K & key) {
-    Node ** current = &root;
-    while ((*current) != NULL) {
-      if (key == (*current)->key) {
-        if ((*current)->left == NULL) {
-          Node * temp = (*current);
-          (*current) = (*current)->right;
-          delete temp;
-        }
-        else if ((*current)->right == NULL) {
-          Node * temp = (*current);
-          (*current) = (*current)->left;
-          delete temp;
-        }
-        else {
-          Node * parent = *current;
-          Node * child = (*current)->right;
-          while (child->left != NULL) {
-            parent = child;
-            child = child->left;
-          }
-          (*current)->key = child->key;
-          (*current)->value = child->value;
-          if (parent == (*current)) {
-            (*current)->right = child->right;
-          }
-          else {
-            parent->left = child->right;
-          }
-          delete child;
-        }
-      }
-      else if (key < (*current)->key) {
-        *current = (*current)->left;
-      }
-      else {
-        *current = (*current)->right;
-      }
-    }
-    }*/
-
+  Node * FinMin(Node * current) {
+    if (current->left != NULL)
+      return FinMin(current->left);
+    else
+      return current;
+  }
   Node * remove_helper(Node * curr, const K & key) {
     if (curr == NULL) {
       return NULL;
@@ -150,36 +117,16 @@ class BstMap : public Map<K, V>
     return curr;
   }
   virtual void remove(const K & key) { root = remove_helper(root, key); }
-
-  Node * FinMin(Node * current) {
-    if (current->left != NULL)
-      return FinMin(current->left);
-    else
-      return current;
-  }
-
-  void destory(Node * node) {
-    if (node != NULL) {
-      destory(node->left);
-      destory(node->right);
-      delete node;
+  void printHelper(Node * current) {
+    if (current != NULL) {
+      cout << current->key << "  ";
+      printHelper(current->left);
+      printHelper(current->right);
     }
   }
-  virtual ~BstMap() { destory(root); }
-  void copytree(Node * curr) {
-    if (curr != NULL) {
-      copytree(curr->left);
-      copytree(curr->right);
-      add(curr->key, curr->value);
-    }
-  }
-
-  BstMap(const BstMap & rhs) { copytree(rhs.root); }
-  void swap(BstMap & rhs) { std::swap(this->root, rhs.root); }
-  BstMap & operator=(const BstMap & rhs) {
-    BstMap temp(rhs);
-    swap(temp);
-    return *this;
+  void printtest() {
+    printHelper(root);
+    cout << "\n";
   }
 };
 #endif
