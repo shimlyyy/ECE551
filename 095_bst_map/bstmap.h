@@ -74,7 +74,7 @@ class BstMap : public Map<K, V>
     throw std::invalid_argument("No such key in the tree");
   }
 
-  virtual void remove(const K & key) {
+  /* virtual void remove(const K & key) {
     Node ** current = &root;
     while ((*current) != NULL) {
       if (key == (*current)->key) {
@@ -113,12 +113,56 @@ class BstMap : public Map<K, V>
         *current = (*current)->right;
       }
     }
+    }*/
+
+  Node * remove_helper(Node * curr, const K & key) {
+    if (curr == NULL) {
+      return NULL;
+    }
+    if (key < curr->key) {
+      curr->left = remove_helper(curr->left, key);
+    }
+    else if (key > curr->key) {
+      curr->right = remove_helper(curr->right, key);
+    }
+    else {
+      if (curr->left == NULL && curr->right == NULL) {
+        delete curr;
+        curr = NULL;
+      }
+      else if (curr->left == NULL) {
+        Node * temp = curr;
+        curr = curr->right;
+        delete temp;
+      }
+      else if (curr->right == NULL) {
+        Node * temp = curr;
+        curr = curr->left;
+        delete temp;
+      }
+      else {
+        Node * temp = FinMin(curr->right);
+        curr->key = temp->key;
+        curr->value = temp->value;
+        curr->right = remove_helper(curr->right, temp->key);
+      }
+    }
+    return curr;
   }
-  void destory(Node * current) {
-    if (current != NULL) {
-      destory(current->left);
-      destory(current->right);
-      delete current;
+  virtual void remove(const K & key) { root = remove_helper(root, key); }
+
+  Node * FinMin(Node * current) {
+    if (current->left != NULL)
+      return FinMin(current->left);
+    else
+      return current;
+  }
+
+  void destory(Node * node) {
+    if (node != NULL) {
+      destory(node->left);
+      destory(node->right);
+      delete node;
     }
   }
   virtual ~BstMap() { destory(root); }
