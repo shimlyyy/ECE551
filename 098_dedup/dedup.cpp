@@ -1,29 +1,31 @@
 #include <dirent.h>
+#include <stdio.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 
 #include <cstdlib>
 #include <fstream>
+#include <functional>
 #include <iostream>
 #include <string>
 #include <unordered_map>
-size_t hash_helper(std::ifstream & input, std::string & path) {
+#include <vector>
+size_t hash_helper(std::ifstream & input) {
   std::string line;
-  size_t value;
   std::string content;
-  std::hash<std::string> hash;
-  while (input) {
+  std::hash<std::string> str_hash;
+  while (!input.eof()) {
     getline(input, line);
     content.append(line);
   }
-  value = hash(content);
-  return value;
+  return str_hash(content);
 }
 
-void fileCompare(std::pair<size_t, std::string> & curr_pair,
-                 std::unordered_map<size_t, std::string> & hash_map) {
-  std::unordered_map<size_t, std::string>::iterator it = hash_map.find(curr_pair.first);
-  if (it == hash_map.end()) {
-    hash_map.insert(curr_pair);
+void file_compare_delete_script_helper(std::pair<size_t, std::string> & curr_pair,
+                                       std::unordered_map<size_t, std::string> & hashmap) {
+  std::unordered_map<size_t, std::string>::iterator it = hashmap.find(curr_pair.first);
+  if (it == hashmap.end()) {
+    hashmap.insert(curr_pair);
   }
   else {
     std::cout << "#Removing " << curr_pair.second << " (duplicate of " << it->second << ")."
@@ -31,48 +33,55 @@ void fileCompare(std::pair<size_t, std::string> & curr_pair,
     std::cout << "rm " << curr_pair.second << std::endl;
   }
 }
-void dir_recursion(std::string & dir, std::unordered_map<size_t, std::string> & hash_map) {
+
+void dir_recursion(const std::string & dir, std::unordered_map<size_t, std::string> & myhashmap) {
   DIR * current = opendir(dir.c_str());
   struct dirent * ent = NULL;
   if (current == NULL) {
-    std::cerr << "can not open directory\n";
+    std::cerr << "Could not open directory\n";
     exit(EXIT_FAILURE);
   }
-  while ((ent = readdir(current)) != NULL) {
-    std::string newfile(ent->d_name);
-    if (newfile == "." || newfile == "..") {  //fiter the hidden '.' and '..' file
-      continue;
-    }
-    else if (ent->d_type == DT_DIR) {
-      std::string newd = dir + "/" + newfile;
-      dir_recursion(newd, hash_map);
-    }
-    else if (ent->d_type == DT_REG) {
-      std::string newd = dir + "/" + newfile;
-      std::ifstream input(newd.c_str());
-      if (input.good()) {
-        size_t curr_hash = hash_helper(input, newd);
-        std::pair<size_t, std::string> curr_pair(curr_hash, newd);
-        fileCompare(curr_pair, hash_map);
+  else {
+    while ((ent = readdir(current)) != NULL) {
+      std::string file_name(ent->d_name);
+      if (file_name == "." || file_name == "..") {
+        continue;
+      }
+      else if (ent->d_type == DT_DIR) {
+        std::string next_dir = dir + "/" + file_name;
+        dir_recursion(next_dir, myhashmap);
+      }
+      else if (ent->d_type == DT_REG) {
+        std::string file = dir + "/" + file_name;
+        std::ifstream input(file.c_str());
+        if (input.good()) {
+          size_t curr_hash;
+          curr_hash = hash_helper(input);
+          std::pair<size_t, std::string> curr_pair(curr_hash, file);
+          file_compare_delete_script_helper(curr_pair, myhashmap);
+        }
+        else {
+          std::cout << "Can not open the file!" << std::endl;
+          exit(EXIT_FAILURE);
+        }
       }
       else {
-        std::cout << "can not open file\n";
-        exit(EXIT_FAILURE);
+        std::cerr << "Unknown file type. " << file_name << " will be omitted." << std::endl;
       }
     }
   }
   closedir(current);
 }
+
 int main(int argc, char ** argv) {
   if (argc == 1) {
-    std::cerr << " no directory\n";
+    perror("Usage: ./dir (the directory to be dedup-ed). Please re-run the program!");
     return EXIT_FAILURE;
   }
   std::unordered_map<size_t, std::string> hash_map;
-  std::cout << "#!/bin/bash"
-            << "\n";
+  std::cout << "#!/bin/bash" << std::endl;
   for (int i = 1; i < argc; i++) {
-    std::string dir(argv[i]);
+    const std::string dir = argv[i];
     dir_recursion(dir, hash_map);
   }
   return EXIT_SUCCESS;
