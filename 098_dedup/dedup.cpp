@@ -1,6 +1,5 @@
 #include <dirent.h>
 #include <stdio.h>
-#include <sys/stat.h>
 #include <sys/types.h>
 
 #include <cstdlib>
@@ -21,8 +20,8 @@ size_t hash_helper(std::ifstream & input) {
   return str_hash(content);
 }
 
-void file_compare_delete_script_helper(std::pair<size_t, std::string> & curr_pair,
-                                       std::unordered_map<size_t, std::string> & hashmap) {
+void fileCompare(std::pair<size_t, std::string> & curr_pair,
+                 std::unordered_map<size_t, std::string> & hashmap) {
   std::unordered_map<size_t, std::string>::iterator it = hashmap.find(curr_pair.first);
   if (it == hashmap.end()) {
     hashmap.insert(curr_pair);
@@ -58,7 +57,7 @@ void dir_recursion(const std::string & dir, std::unordered_map<size_t, std::stri
           size_t curr_hash;
           curr_hash = hash_helper(input);
           std::pair<size_t, std::string> curr_pair(curr_hash, file);
-          file_compare_delete_script_helper(curr_pair, myhashmap);
+          fileCompare(curr_pair, myhashmap);
         }
         else {
           std::cout << "Can not open the file!" << std::endl;
