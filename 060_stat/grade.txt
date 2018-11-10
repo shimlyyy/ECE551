@@ -1,4 +1,4 @@
-Grading at 11/10/2018:22:14:29.710276
+Grading at 11/10/2018:23:03:42.614447
 For commit ID a9afc572a8bd27572787f29be5b0f02dbc097849
 Attempting to compile mystat.c
 Your code seems to compile fine.
@@ -431,6 +431,6 @@ Note from the grader:
 Function name should tell people what each function does, not what step of the readme the function addresses. it is good to divide different steps but some function is still too long. Maybe try more abstruction next time?
 Total points 5.0 / 9 = 55.55 % 
  -> This is 15% of your overall grade on this assignment
-Total: 0.85 * 85.00 + 0.15 * 55.55=80.58
+Total: 0.85 * 100 + 0.15 * 55.55=93.33
 
-Overall Grade: 80.58
+Overall Grade: 93.33
