@@ -130,7 +130,7 @@ Step 2: Numerical Integration
   integral computes the volume under a function of 2 parameters,
   with the volume of one particular "slice" being:
   (f(x,y) + f(x+width, y) + f(x, y+width) + f(x+width,y+width)) / 4 * width * width
-
+          
   Another way to think of that is a rectangular prism whose height
   is the average of the four corners of the slice.
   This same idea generalizes to any number of dimensions.
