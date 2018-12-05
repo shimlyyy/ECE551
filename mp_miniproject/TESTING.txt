@@ -1,0 +1,151 @@
+(ps: because numerics.txt require to exit for invalid input.I do this test even the input is wrong it can still read a new line. Then afer that I change my program.
+
+Run ./numerics < step1_input.txt
+You will see that it prints:
+defined f(x y)
+defined mp(x y)
+defined kk(x y)
+defined mm(x y z)
+defined function(x y)
+defined p(x y)
+defined k(a b)
+defined built(a b c)
+defined tgr(a b c)
+defined def(x y)
+defined FF(X Y)
+defined g(a b c d e f g)
+defined bug(x)
+defined bugg(y)
+bugg(1)=2[correct]
+f(1 2)=9[correct]
+mp((f 1 2) 3)=12[correct]
+mp((f 1 2) (f 2 4))=2[INCORRECT: expected 18]
+mp(3 4)=7[correct]
+kk((  mp 3.2 ( f 2 1  )  ) 4.5   )=4.6[INCORRECT: expected -66.8]
+function(4 2)=0[correct]
+p(3.14 3.14)=0[INCORRECT: expected -0.00159265]
+k(4 2)=4[correct]
+built(4 5 0.01)=1[INCORRECT: expected 1.40879]
+tgr(0.1 3 4)=5[INCORRECT: expected -3.4]
+def(3 4)=6[INCORRECT: expected 36]
+FF(33 5)=44[INCORRECT: expected 1306.8]
+g(1 2 3 3 4 5 5)=6[INCORRECT: expected -1]
+no such commands
+-----end----
+invalid input
+-----end----
+the function name fhas been defined
+invalid input
+-----end----
+invalid input
+-----end----
+invalid input
+-----end----
+Invalid op:ffff
+invalid input
+-----end----
+right para is not macth left para
+invalid input
+-----end----
+invalid input
+-----end----
+not a valid paramater
+invalid input
+-----end----
+empty string
+-----end----
+no such commands
+-----end----
+invalid test
+-----end----
+invalid test
+-----end----
+invalid test
+-----end----
+invalid test
+-----end----
+invalid test
+-----end----
+invalid test
+-----end----
+which is correct because for correct input, it can define function and test function, for invalid input, it gives messages.
+
+
+Run ./numerics < step2_input.txt
+You will see that it prints:
+defined f(x)
+defined g(x)
+defined k(x y)
+defined kr(x y z)
+result is:50
+result is:50
+result is:0.666667
+result is:0.333333
+result is:12.25
+result is:9.75
+empty string
+-----end----
+step is invalid
+invalid numint
+-----end----
+not a valid fname
+invalid numint
+-----end----
+range is invalid
+invalid numint
+-----end----
+Invalid input
+invalid numint
+-----end----
+which is correct because for correct input, it can define function and compute result, for invalid input, it gives messages.
+
+
+Run ./numerics < step3_input.txt
+You will see that it prints:
+defined f(x)
+defined g(x)
+defined k(x y)
+defined kr(x y z)
+result is: 0.722325
+result is: 0.722325
+result is: 0.594646
+result is: 0.191121
+result is: 0.191121
+result is: 0.0315766
+result is: 0.448584
+result is: 2.99007
+empty string
+-----end----
+step is invalid
+invalid mcint
+-----end----
+step is invalid
+invalid mcint
+-----end----
+not a valid fname
+invalid mcint
+-----end----
+Invalid input
+invalid mcint
+-----end----
+which is correct because for correct input, it can define function and compute result, for invalid input, it gives messages.
+
+
+
+Run ./numerics < step4_input.txt
+You will see that it prints:
+defined f(x)
+defined g(x)
+defined k(x y)
+result is : 1.01
+result is : 2.99
+result is : 0.235999
+result is : 0.235999
+result is : 4.1704
+empty string
+-----end----
+invalid gradient--max
+-----end----
+invalid gradient--min
+-----end----
+which is correct because for correct input, it can define function and compute result, for invalid input, it gives messages.

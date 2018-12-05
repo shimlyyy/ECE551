@@ -1,0 +1,45 @@
+define(f x y)=9
+define(mp x y)=(+ x y)
+define(kk x y)=(* (+ x y) -4)
+define (mm x y z) = (+ (* x y) (- z 3.55))
+define(function x y)=(* (/ x y) (% x y))
+define(p x y)=(* (sin x) (cos y))
+define(k a b)=(+ (sqrt a ) b)
+define(built a b c)=(* (ln a)  (pow b c))
+define(tgr a b c)=(+ (kk a 3) (sqrt (pow b c)))
+define(def x y)=(* (mp (mp x 3)3) y)
+define(FF X Y)=(* X (+ X (/ X Y)))
+define  (  g a  b  c  d  e  f   g  ) =   (  /    (+    (   *(- a    b   )  (*   (+  c  d )   e   )   )  (*  f   g   ) ) ( - a  2   ))
+define(bug x)=(+ x x)
+define(bugg y)=(bug y)
+test(bugg 1) 2
+test(f 1 2) 9
+test(mp (f 1 2) 3) 12
+test(mp (f 1 2) (f 2 4)) 2
+test(mp  3 4) 7
+test  (  kk (  mp 3.2 ( f 2 1  )  ) 4.5   )  4.6
+test(function 4 2) 0
+test(p 3.14 3.14) 0
+test(k 4 2) 4
+test(built 4 5 0.01) 1
+test(tgr 0.1 3 4) 5
+test(def 3 4) 6
+test(FF 33 5) 44
+test(g 1 2 3 3 4 5 5) 6
+eedefine(invalid x)=3
+define(dd x)= ( / ( + ( * ( - x    5  )  (* (+ 1 2) 42 )  ) (* -77 -11) (  -  3  2 ))
+define(f x y z)=(* (+ x y) z)
+define(invalid x y =(- x y)
+define(invalid x y z)=(* (- ((* x z) y)) x)
+define(invalid x y)=(ffff (sqre x) y)
+define(invalid a b)=(* a c)
+define(invalid a a)=(* a a)
+define(invalid x y)=(* (+ x *) y)
+
+tttest(kk 1 2) 4
+test(kk 1 2 3) 4
+test(kk 1 2) 3.3  4
+test(kk 1 2) number
+test(mm xy xz x) 3
+test(mm 2) 4
+test(mm (kk 1) (kk 1 2) (f 2 3));

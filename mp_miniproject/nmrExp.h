@@ -5,14 +5,13 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <string>
 #include <vector>
-
 class Expression
 {
  public:
-  virtual std::string toString() const = 0;
   virtual double evaluate(std::vector<std::string> & arr_para,
                           std::vector<double> & arr_value) const = 0;
   virtual ~Expression(){};
@@ -36,7 +35,7 @@ class Function : public Expression
       arr_para(str),
       def(d),
       arr_value(value) {}
-  virtual std::string toString() const { return def->toString(); }
+ 
   double evaluate() { return def->evaluate(arr_para, arr_value); }  //to call evaluate much easiler
   virtual double evaluate(std::vector<std::string> & arr_para,
                           std::vector<double> & arr_value) const {
@@ -61,11 +60,7 @@ class OP_Expression : public Expression
       op(op),
       left(lhs),
       right(rhs) {}
-  virtual std::string toString() const {
-    std::ostringstream ss;
-    ss << "(" << left->toString() << op << right->toString() << ")";
-    return ss.str();
-  }
+
 
   virtual double evaluate(std::vector<std::string> & arr_para,
                           std::vector<double> & arr_value) const {
@@ -104,34 +99,7 @@ class builtOP_Expression : public Expression
       op(op),
       left(lhs),
       right(rhs) {}
-  virtual std::string toString() const {
-    std::ostringstream ss;
-    if (op.compare("sin") == 0) {
-      ss << "(" << op << left->toString() << ")";
-      return ss.str();
-    }
-    else if (op.compare("cos") == 0) {
-      ss << "(" << op << left->toString() << ")";
-      return ss.str();
-    }
-    else if (op.compare("sqrt") == 0) {
-      ss << "(" << op << left->toString() << ")";
-      return ss.str();
-    }
-    else if (op.compare("ln") == 0) {
-      ss << "(" << op << left->toString() << ")";
-      return ss.str();
-    }
-    else if (op.compare("pow") == 0) {
-      ss << "(" << op << "(" << left->toString() << "," << right->toString() << ")"
-         << ")";  //if input has only one para. test case
-      return ss.str();
-    }
-    else {
-      std::cerr << "Impossible op char: " << op << "\n";
-      abort();
-    }
-  }
+ 
 
   virtual double evaluate(std::vector<std::string> & arr_para,
                           std::vector<double> & arr_value) const {
@@ -169,11 +137,7 @@ class NumExpression : public Expression  //basic class, represent the num parame
   NumExpression(std::vector<std::string> & arr, std::vector<double> & value) :
       arr_para(arr),
       arr_value(value) {}
-  virtual std::string toString() const {
-    std::ostringstream ss;
-    ss << num;
-    return ss.str();
-  }
+
 
   virtual double evaluate(std::vector<std::string> & arr, std::vector<double> & value) const {
     NumExpression(
@@ -193,7 +157,7 @@ class VarExpression : public Expression  //basic class variable class
 
  public:
   VarExpression(std::string & var) : var(var) {}
-  virtual std::string toString() const { return var; }
+ 
   virtual double evaluate(std::vector<std::string> & arr_para,
                           std::vector<double> & arr_value) const {
     double value;
@@ -206,5 +170,29 @@ class VarExpression : public Expression  //basic class variable class
   }
   virtual ~VarExpression() {}
 };
+class newExpression : public Expression
+{
+ private:
+  Function * contain;
+  std::vector<Expression *> current;
 
+ public:
+  newExpression(Function * con, std::vector<Expression *> & curr) : contain(con), current(curr) {}
+  virtual double evaluate(std::vector<std::string> & arr_para,
+                          std::vector<double> & arr_value) const {
+    std::vector<double> needToEvaluate;
+    for (size_t i = 0; i < current.size(); i++) {
+      double index = current[i]->evaluate(arr_para, arr_value);
+      needToEvaluate.push_back(index);
+    }
+    contain->setValue(needToEvaluate);
+    double result = contain->evaluate();
+    return result;
+  }
+  virtual ~newExpression() {
+    for (size_t i = 0; i < current.size(); i++) {
+      delete current[i];
+    }
+  }
+};
 #endif

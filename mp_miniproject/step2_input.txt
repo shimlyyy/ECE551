@@ -1,0 +1,15 @@
+define (f x) = x
+define (g x) = (* x x)
+define (k x y)=(* (+ 2 x) y)
+define (kr x y z)=(+ (* x y) z)
+numint f 0.001 0 10
+numint f 0.01 0 10
+numint g 0.001 -1 1
+numint g 0.001 0 1
+numint k 0.01 1 2 3 4
+numint kr 0.1 1 2 3 4 4 5
+
+numint f a 0 10
+numint mm 0.01 0 10
+numint f 0.01 a b
+numint f 0.01 0 10 1 2

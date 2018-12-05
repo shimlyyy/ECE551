@@ -1,3 +1,0 @@
-CFLAGS=-Wall -Werror -std=gnu++11 -pedantic -ggdb3
-numeric:numeric.cpp
-	g++ -o numeric $(CFLAGS) numeric.cpp

@@ -1,0 +1,17 @@
+define (f x) = x
+define (g x) = (* x x)
+define (k x y)=(* (+ 2 x) y)
+define (kr x y z)=(+ (* x y) z)
+mcint f 100 0 1
+mcint f 1000 0 1
+mcint f 20000 0 1
+mcint g 100 0 1
+mcint g 1000 0 1
+mcint g 1000 -1 1
+mcint k 1000 0 1 0 1
+mcint kr 1000 1 2 1 2 1 2
+
+mcint f a 0 1
+mcint f a b c
+mcint mm 100 0 1
+mcint f 100 0 1 0 1
