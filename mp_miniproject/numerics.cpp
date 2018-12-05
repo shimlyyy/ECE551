@@ -10,7 +10,7 @@
 #include "common.h"
 #include "function.h"
 #include "nmrExp.h"
-void freeMap(std::map<std::string, Function *> & function_map);
+void freeMap(std::map<std::string, Function *> & Myfunction);
 Expression * parsing(std::string::iterator & it,
                      std::map<std::string, Function *> & Myfunction,
                      std::vector<std::string> & paraVector);
