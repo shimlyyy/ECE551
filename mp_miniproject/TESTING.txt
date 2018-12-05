@@ -137,11 +137,11 @@ You will see that it prints:
 defined f(x)
 defined g(x)
 defined k(x y)
-result is : 1.01
-result is : 2.99
-result is : 0.235999
-result is : 0.235999
-result is : 4.1704
+the result is: 1.01
+the result is: 2.99
+the result is: -0.485797
+the result is: -0.485797
+the result is: 2.01 1.04
 empty string
 -----end----
 invalid gradient--max

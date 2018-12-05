@@ -40,12 +40,12 @@ double averageDis(std::vector<double> & current, std::vector<double> & nextPos) 
   }
   return sqrt(result);
 }
-double EVAgradient(Function * f,
-                   double gamma,
-                   double convergedDistance,
-                   std::vector<double> & startPoint,
-                   double steps,
-                   int choice) {
+std::vector<double> EVAgradient(Function * f,
+                                double gamma,
+                                double convergedDistance,
+                                std::vector<double> & startPoint,
+                                double steps,
+                                int choice) {
   int i = 0;
   std::vector<double> current = startPoint;
   std::vector<double> nextPos(current.size(), 0);
@@ -62,8 +62,7 @@ double EVAgradient(Function * f,
     current = nextPos;
     i++;
   } while (distance > convergedDistance && i < steps);
-  f->setValue(nextPos);
-  return f->evaluate();
+  return nextPos;
 }
 void forGradient(std::string & line, std::map<std::string, Function *> & Myfunction, int choice) {
   std::string data = line.substr(3);
@@ -118,6 +117,10 @@ void forGradient(std::string & line, std::map<std::string, Function *> & Myfunct
   }
   //now we get all the parameters we need;
   //compute final step!
-  double result = EVAgradient(f, gamma, convergedDistance, startPoint, steps, choice);
-  std::cout << "result is : " << result << "\n";
+  std::vector<double> result = EVAgradient(f, gamma, convergedDistance, startPoint, steps, choice);
+  std::cout << "the result is:";
+  for (size_t i = 0; i < result.size(); i++) {
+    std::cout << " " << result[i];
+  }
+  std::cout << "\n";
 }
